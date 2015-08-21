@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Fun With Tables</title>
+	<link rel="stylesheet" type="text/css" href="tablecss.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+</head>
+<body onload="getIndex();">
+
+<h1>Challenge #1</h1>
+<table id="my_table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Occupation</th>
+			<th>Awesome Index</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>		
+<script>
+	var data = [ 
+		{ 
+			name: 'Trinity', 
+			occupation: 'programmer', 
+			awesomeIndex: 10 
+		}, 
+		{ 
+			name: 'Mater', 
+			occupation: 'tow truck' 
+		}, 
+		{ 
+			name: 'Number 5', 
+			occupation: 'programmer', 
+			awesomeIndex: 7 
+		}, 
+		{ 
+			name: 'Alice', 
+			occupation: 'programmer', 
+			awesomeIndex: 9 
+		}, 
+		{ 
+			name: 'Zaphod', 
+			occupation: 'President of the Galaxy' 
+		}, 
+		{ 
+			name: 'Bob Parr', 
+			occupation: 'programmer', 
+			awesomeIndex: 6 
+		} 
+		];
+
+	function loadTable()
+	{
+		_(data).forEach(function(n){
+			console.log(n);
+			$("#my_table > tbody").append("<tr><td>" + n.name + "</td><td>" + n.occupation + "</td><td>" + n.awesomeIndex + "</td></tr>");
+		}).value();
+
+
+	}
+	function getIndex()
+	{
+		
+		var index;
+		var total = 0;
+		var avg;
+
+		for (index = 0; index < data.length; index++ )
+		{
+
+			if(data[index].awesomeIndex != null)
+			{
+			total += data[index].awesomeIndex
+			console.log(total)
+			}
+		}
+
+		document.getElementById("awesome-index").innerHTML = (total / data.length);
+		loadTable()
+	}
+
+</script>
+
+
+<p>Awesome Index Average: </p>
+<p id="awesome-index">0</p>
+
+</body>
+</html>

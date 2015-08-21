@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Fun With Tables</title>
+	<link rel="stylesheet" type="text/css" href="tablecss.css">
+</head>
+<body onload="getIndex();">
+
+<h1>Challenge #1</h1>
+<table id="my_table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Occupation</th>
+			<th>Awesome Index</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>		
+<script>
+	var data = [ 
+		{ 
+			name: 'Trinity', 
+			occupation: 'programmer', 
+			awesomeIndex: 10 
+		}, 
+		{ 
+			name: 'Mater', 
+			occupation: 'tow truck' 
+		}, 
+		{ 
+			name: 'Number 5', 
+			occupation: 'programmer', 
+			awesomeIndex: 7 
+		}, 
+		{ 
+			name: 'Alice', 
+			occupation: 'programmer', 
+			awesomeIndex: 9 
+		}, 
+		{ 
+			name: 'Zaphod', 
+			occupation: 'President of the Galaxy' 
+		}, 
+		{ 
+			name: 'Bob Parr', 
+			occupation: 'programmer', 
+			awesomeIndex: 6 
+		} 
+		];
+
+	function loadTable()
+	{
+		var table = document.getElementById('my_table');
+		for (var i = 0; i < data.length; i++){
+		    var tr = document.createElement('tr');   
+
+		    var td1 = document.createElement('td');
+		    var td2 = document.createElement('td');
+		    var td3 = document.createElement('td');
+
+		    var text1 = document.createTextNode(data[i].name);
+		    var text2 = document.createTextNode(data[i].occupation);
+		    var text3 = document.createTextNode(data[i].awesomeIndex)
+
+		    td1.appendChild(text1);
+		    td2.appendChild(text2);
+		    td3.appendChild(text3);
+		    tr.appendChild(td1);
+		    tr.appendChild(td2);
+		    tr.appendChild(td3);
+
+		    table.appendChild(tr);
+		}
+		document.body.appendChild(table);
+	}
+	function getIndex()
+	{
+		
+		var index;
+		var total = 0;
+		var avg;
+
+		for (index = 0; index < data.length; index++ )
+		{
+
+			if(data[index].awesomeIndex != null)
+			{
+			total += data[index].awesomeIndex
+			console.log(total)
+			}
+		}
+
+		document.getElementById("awesome-index").innerHTML = (total / data.length);
+		loadTable()
+	}
+
+</script>
+
+
+<p>Awesome Index Average: </p>
+<p id="awesome-index">0</p>
+
+</body>
+</html>
