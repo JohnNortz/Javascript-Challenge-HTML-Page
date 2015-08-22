@@ -63,7 +63,9 @@
 
 		    var text1 = document.createTextNode(data[i].name);
 		    var text2 = document.createTextNode(data[i].occupation);
-		    var text3 = document.createTextNode(data[i].awesomeIndex)
+		    
+		    if (data[i].awesomeIndex == null) var text3 = document.createTextNode("0");
+		    else var text3 = document.createTextNode(data[i].awesomeIndex);
 
 		    td1.appendChild(text1);
 		    td2.appendChild(text2);
